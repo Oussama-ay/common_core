@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	cheack(char c, const char *set)
+static int	in_set(char c, const char *set)
 {
 	while (*set)
 	{
@@ -32,13 +32,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	if (!s1)
 		return (0);
+	if (!set)
+		return (ft_strdup(s1));
 	if (*s1 == '\0')
 		return (ft_strdup(""));
 	start = 0;
-	while (cheack(s1[start], set))
+	while (in_set(s1[start], set))
 		start++;
 	end = ft_strlen(s1);
-	while (end > start && cheack(s1[end - 1], set))
+	while (end > start && in_set(s1[end - 1], set))
 		end--;
 	str = malloc(end - start + 1);
 	if (!str)

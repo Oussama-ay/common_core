@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdint.h>
 
 /* Functions from ctype header file */
 int		ft_isalpha(int c);
